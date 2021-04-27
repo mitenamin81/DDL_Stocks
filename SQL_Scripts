@@ -1,0 +1,102 @@
+/* Data Definition Language (DDL) */
+
+CREATE DATABASE Stocks;
+USE Stocks;
+
+CREATE TABLE Amazon(
+	stock_ID	int,
+	trade_date      date,
+	high            double,
+	low             int,
+	open_price      double,
+	close_price     double,
+	volume          double,
+	adj_close       double,
+	company         varchar(50)
+	CONSTRAINT PRIMARY KEY(stock_ID),
+);
+
+CREATE TABLE Alphabet(
+	stock_ID	int,
+	trade_date      date,
+	high            double,
+	low             int,
+	open_price      double,
+	close_price     double,
+	volume          double,
+	adj_close       double,
+	company         varchar(50)
+	CONSTRAINT PRIMARY KEY(stock_ID),
+);
+
+CREATE TABLE Microsoft(
+	stock_ID	int,
+	trade_date      date,
+	high            double,
+	low             int,
+	open_price      double,
+	close_price     double,
+	volume          double,
+	adj_close       double,
+	company         varchar(50)
+	CONSTRAINT PRIMARY KEY(stock_ID),
+);
+
+CREATE TABLE IBM(
+	stock_ID	int,
+	trade_date      date,
+	high            double,
+	low             int,
+	open_price      double,
+	close_price     double,
+	volume          double,
+	adj_close       double,
+	company         varchar(50)
+	CONSTRAINT PRIMARY KEY(stock_ID),
+);
+
+CREATE TABLE Intel(
+	stock_ID	int,
+	trade_date      date,
+	high            double,
+	low             int,
+	open_price      double,
+	close_price     double,
+	volume          double,
+	adj_close       double,
+	company         varchar(50)
+	CONSTRAINT PRIMARY KEY(stock_ID),
+);
+
+CREATE TABLE Infosysy(
+	stock_ID	int,
+	trade_date      date,
+	high            double,
+	low             int,
+	open_price      double,
+	close_price     double,
+	volume          double,
+	adj_close       double,
+	company         varchar(50)
+	CONSTRAINT PRIMARY KEY(stock_ID),
+);
+
+CREATE TABLE Facebook(
+	stock_ID	int,
+	trade_date      date,
+	high            double,
+	low             int,
+	open_price      double,
+	close_price     double,
+	volume          double,
+	adj_close       double,
+	company         varchar(50)
+	CONSTRAINT PRIMARY KEY(stock_ID),
+);
+
+
+
+
+
+
+
