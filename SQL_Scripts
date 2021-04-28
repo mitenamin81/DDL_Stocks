@@ -1,5 +1,7 @@
 /* Data Definition Language (DDL) */
 
+--Creating database and tables to hold stock data information for each company 
+
 CREATE DATABASE Stocks;
 USE Stocks;
 
@@ -95,8 +97,66 @@ CREATE TABLE Facebook(
 );
 
 
+/* Data Manipulation Language */
 
+-- Unionizing data from all tables that share common field attributes in order to expediate analytical process
 
+SELECT * FROM Amazon
+UNION ALL 
+SELECT * FROM Alphabet
+UNION ALL
+SELECT * FROM Microsoft
+UNION ALL 
+SELECT * FROM IBM
+UNION ALL 
+SELECT * FROM Intel
+UNION ALL 
+SELECT * FROM Infosysy
+UNION ALL 
+SELECT * FROM Facebook;
 
+-- Using a common table expression to condense query into 1 usable statement 
+
+--Comparing average trading volume and average stock price for all companies
+WITH all_data AS (
+
+	SELECT * FROM Amazon
+	UNION ALL 
+	SELECT * FROM Alphabet
+	UNION ALL
+	SELECT * FROM Microsoft
+	UNION ALL 
+	SELECT * FROM IBM
+	UNION ALL 
+	SELECT * FROM Intel
+	UNION ALL 
+	SELECT * FROM Infosysy
+	UNION ALL 
+	SELECT * FROM Facebook
+)
+
+SELECT AVG(close_price), AVG(volume)
+FROM all_data
+
+--Using the same CTE, retreiving stock price movement throught each day in 2020
+SELECT ROUND(close_price,2)
+FROM all_data
+WHERE trade_date BETWEEN '2020-01-01' AND '2020-12-31';
+
+--Using the same CTE, retreicving the difference between high and low prices for Amazon
+SELECT trade_date, high - low AS margin_of_highlow
+FROM all_date
+WHERE company = 'Amazon'
+GROUP BY trade_date;
+ORDER BY margin_of_highlow;
+
+--Using the same CTE, retreving trading days and average volume 
+--where open price and closing price were equivalent in Facebook Shares that exceeded volume of 15,000,000
+SELECT trade_date, AVG(volume)
+FROM all_date
+WHERE open_price = close_price AND company = 'Facebook'
+GROUP BY trade_date
+HAVING volume > 15,000,000
+ORDER BY trade_date;
 
 
